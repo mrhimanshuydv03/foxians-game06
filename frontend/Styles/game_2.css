@@ -1,0 +1,186 @@
+:root {
+    --cell-size: 20px;
+    --board-size-L: 900px;
+    --board-size-M: 500px;
+    --board-size-S: 350px;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    /* /* background: #9bfaed;  */
+    text-align: center;
+    background-repeat: repeat;
+    background-image: url(../assets/Designer\ \(2\).png);
+   margin: 0px;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 128, 0, 0.238);
+    
+}
+.dice-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 100px;
+}
+
+img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+img.rolling {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+button{
+    background-color: #81eedfe1;
+    border: none;
+    outline: none;
+   
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    text-decoration:solid;
+    font-size: larger;
+}
+
+.main-board {
+    width: var(--board-size-L);
+    height: var(--board-size-L);
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.block {
+    border: 2px solid black;
+    background: #eec6f1ef;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 25px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+
+
+
+.active {
+    background-image: url("../assets/FOSTERING\ LOGO.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.ladder,
+.snake {
+    background-image: url("..");
+    background-size: contain;
+    opacity: 95%;
+}
+
+.snake {
+    background-image: url("../assets/sad.png");
+    
+}
+
+.ladder {
+    
+    background-image: url(../assets/sucess.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .dice-container {
+        margin-left: 0;
+        margin-top: 20px;
+        
+    }
+   
+
+    .main-board {
+        width: var(--board-size-M);
+        height: var(--board-size-M);
+        margin: 5px;
+    }
+
+ 
+
+   
+}
+
+@media screen and (max-width: 480px) {
+    .main-board {
+        width: var(--board-size-S);
+        height: var(--board-size-S);
+        margin: 5px;
+    }
+
+    /* Adjust other styles for even smaller screens */
+}
+
+
+/* For alart box */
+
+
+
+.swal2-container .swal2-popup{
+    display: none;
+    position: relative;
+    box-sizing: border-box;
+    grid-template-columns: minmax(0, 100%);
+    width: 25em;
+    max-width: 100%;
+    padding: 0 0 1.25em;
+    border: none;
+    border-radius: 50px;
+    background: #eeeaea;
+    color: #000000;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    
+}
+
+.div:where(.swal2-container) .swal2-html-container {
+    z-index: 1;
+    justify-content: center;
+    margin: 1em 1.6em .3em;
+    padding: 0;
+    overflow: auto;
+    color: inherit;
+    font-size: 1.125em;
+    font-weight: normal;
+    line-height: normal;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: 30px;
+}

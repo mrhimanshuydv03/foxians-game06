@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Roll Dice</title>
+        <link rel="stylesheet" href="./Styles/game_2.css" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+
+    <body onload="createMatrix()">
+        <div class="container">
+            <div class="main-board"></div>
+            <audio id="ladderSound" src="/assets/Crowd Reactions Small Group Yeah  Happy - QuickSounds.com.mp3"></audio>
+            <audio id="snakeSound" src="/assets/Snake Strike - QuickSounds.com.mp3"></audio>
+            <div class="dice-container">
+                <img src="assets/dice1.png" id="dice-id"onclick="roll()"> 
+                <button onclick="roll()">Roll Dice</button> 
+                
+                </div>
+            </div> 
+        </div>
+        <script src="Index2.js"></script>
+    </body>
+</html>

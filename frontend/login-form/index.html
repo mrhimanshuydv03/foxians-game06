@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div id="div1" class="login">
+        <img id="image" src="assets/img/2.png" alt="login image" class="login__img">
+        <div class="login__form">
+            <h1 class="login__title">Login</h1>
+            <div class="login__content">
+                <div class="login__box">
+                    <i class="ri-user-3-line login__icon"></i>
+                    <div class="login__box-input">
+                        <input type="email" required class="login__input" id="login-email" placeholder="">
+                        <label for="login-email" class="login__label">Email</label>
+                    </div>
+                </div>
+                <div class="login__box">
+                    <i class="ri-lock-2-line login__icon"></i>
+                    <div class="login__box-input">
+                        <input type="password" required class="login__input" id="login-pass" placeholder="">
+                        <label for="login-pass" class="login__label">Password</label>
+                        <i class="ri-eye-off-line login__eye" id="login-eye"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="login__check">
+                <div class="login__check-group">
+                    <!-- Include any additional checkboxes or elements here -->
+                </div>
+                <a href="#" class="login__forgot" onclick="toggleDivs()">Forgot Password?</a>
+            </div>
+            <button type="submit" id="login__btn" class="login__button">Login</button>
+            <p class="login__register">Don't have an account? <a href="/login-form/Register.html">Register</a></p>
+        </div>
+    </div>
+
+    <div id="div2" class="login" style="display: none;">
+        <img src="assets/img/3.png" alt="login image" id="bgimg" class="login__img">
+        <div class="login_form">
+            <h1 class="login__title">Forgot Password</h1>
+            <div class="login__content">
+                <div class="login__box opt__email_input" id="otpEmail">
+                    <i class="ri-user-3-line login__icon"></i>
+                    <div class="login__box-input">
+                        <input type="email" required class="login__input email_inp" id="reset-email" placeholder="">
+                        <label for="reset-email" class="login__label">Email</label>
+                    </div>
+                </div>
+                <div class="login__box otp__password_input" id="otpPassword">
+                    <i class="ri-lock-2-line login__icon"></i>
+                    <div class="login__box-input">
+                        <input type="password" required class="login__input password_inp" id="reset-pass"
+                            placeholder="">
+                        <label for="reset-pass" class="login__label">New Password</label>
+
+                    </div>
+                    <div class="login__box-input">
+                        <input type="password" required class="login__input Confirm password_inp" id="confirm-pass"
+                            placeholder="Confirm Password">
+                        <label for="confirm-pass" class="login__label"></label>
+                    </div>
+
+                </div>
+
+                <div class="login__box otp__input" id="otpInput">
+                    <i class="ri-lock-2-line login__icon"></i>
+                    <div class="login__box-input ">
+                        <input type="text" required class="login__input otp_inp" id="otp" placeholder="">
+                        <label for="otp" class="login__label">OTP</label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" id="verifyBtn" class="login__button verify__button">Verify</button>
+            <button type="submit" onclick="resetPassword()" id="reset__btn" id="resetBtn"
+                class="login__button verify__button">Reset
+                Password</button>
+        </div>
+    </div>
+
+    <button id="aboutBtn" class="about__button">About The Game</button>
+    <div id="aboutDiv" class="about__container" style="display: none;">
+        <h2>About the game</h2>
+
+        <h1>Welcome to the [Fostering Linux] Snake and Ladder Game!</h1>
+
+        <p>Our game is not just about rolling dice and climbing ladders or getting bitten by snakes. It's an innovative
+            approach to understanding our company's journey, its successes, and its challenges.</p>
+
+        <h2>Why Play Our Game?</h2>
+
+        <ul>
+            <li><strong>Learn About Our Business:</strong> Each step in the game will give you insights into our
+                company's operations, strategies, and values.</li>
+            <li><strong>Interactive Experience:</strong> Immerse yourself in a fun and interactive journey that combines
+                entertainment with education.</li>
+            <li><strong>Understand Profit and Loss:</strong> Experience firsthand the ups and downs of business, as
+                snakes and ladders reflect our company's profits and losses.</li>
+            <li><strong>Connect with Us:</strong> Get to know us better and understand what sets our company apart in
+                the industry.</li>
+        </ul>
+
+        <h2>How to Play:</h2>
+
+        <ol>
+            <li>Click the dice to make it rotate.</li>
+            <li>If it lands on an achievement picture, you'll see a message and move forward.</li>
+            <li>If it lands on a sad picture, you'll see a message and move backward.</li>
+            <li>Once you reach a score of 100, click the dice again.</li>
+            <li>Then, click on the "scores" button that appears.</li>
+            <li>You'll be taken to a dashboard showing all the pictures you've seen and messages received.</li>
+            <li>The dashboard has two sections: "Profit" for achievement messages and "Loss" for sad images, along with
+                your scores.</li>
+            <li>Clicking on "foxian" will take you to a fostering website.</li>
+        </ol>
+
+        <p>Start Playing Now and Discover the World of [Fostering Linux]! To begin your adventure, simply click <a
+                href="#">here</a> to access the game.</p>
+
+        <p>Thank you for joining us on this exciting journey!</p>
+
+
+
+
+    </div>
+
+
+
+
+
+    <!-- MAIN JS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/login.js" defer></script>
+
+    <script>
+        // JavaScript code for toggling about div
+        document.getElementById("aboutBtn").addEventListener("click", function () {
+            const aboutDiv = document.getElementById("aboutDiv");
+            aboutDiv.style.display = (aboutDiv.style.display === "none") ? "block" : "none";
+        });
+    </script>
+
+
+
+    <script>
+
+
+        function toggleDivs() {
+            const div1 = document.getElementById("div1");
+            const div2 = document.getElementById("div2");
+
+            if (div1.style.display === "none") {
+                div1.style.display = "block";
+                div2.style.display = "none";
+            } else {
+                div1.style.display = "none";
+                div2.style.display = "block";
+            }
+        }
+
+
+    </script>
+   
+
+</body>
+
+</html>

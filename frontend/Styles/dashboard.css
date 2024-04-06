@@ -1,0 +1,227 @@
+body {
+    background-image: url(../login-form/assets/img/dash1.png);
+
+    background-size: cover;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    margin: 0px;
+
+    overflow: hidden;
+}
+
+h2 {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    /* Adjust as needed */
+    color: #ffffff;
+    /* Adjust color as needed */
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(241, 233, 233);
+}
+
+#site span:hover {
+    color: #fe7259;
+}
+
+.container h1 {
+    color: #ccc;
+}
+
+div img {
+    background-color: #fff;
+    border-radius: 50px;
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 800px;
+    /* Adjust the max-width to your preference */
+    margin: 0px auto;
+    /* Add more margin for spacing */
+    padding: 30px;
+    border: 2px solid #dfd6d6;
+    color: rgb(167, 70, 70);
+    border-radius: 15px;
+
+    opacity: 1.9;
+    margin-bottom: 20px;
+}
+
+.attempt-container {
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid #dfd6d6;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.current-attempt-data {
+    font-size: 20px;
+}
+
+#current-attempt div {
+    display: flex;
+    justify-content: space-around;
+    color: #000000;
+}
+
+.current-attempt-header {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.milestone-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#dashboard-wish-msg {
+    color: rgb(25, 34, 31);
+    font-size: 50px;
+}
+
+.single-stone {
+    margin: 25px 5px;
+    background: rgba(235, 164, 164, 0.493);
+    color: black;
+    border-radius: 10px;
+    /* background-color: red; */
+}
+
+.single-stone-number {
+    background: white;
+    color: rgb(41, 28, 28);
+    font-size: 30px;
+
+    padding: 10px;
+    border-radius: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #312b2b;
+    /* Adjust the color to improve readability */
+    margin-bottom: 20px;
+    margin: 0.9px;
+}
+
+.leaderboard {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#leaderboard {
+    color: black;
+}
+
+.leaderboard li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #dfdfdf;
+    background: transparent;
+    color: #ccc;
+}
+
+.leaderboard li:last-child {
+    border-bottom: none;
+}
+
+.player-name {
+    flex: 1;
+    font-weight: bold;
+    /* Make player names bold for emphasis */
+    color: rgb(19, 18, 18);
+}
+
+.player-score {
+    flex-basis: 100px;
+    text-align: right;
+    color: rgb(19, 18, 18);
+}
+
+.single-stone {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.single-stone span {
+    align-self: start;
+    margin: 5px;
+}
+
+.milestone-text {
+    text-align: center;
+    font-size: 25px;
+}
+
+#lead-container {
+    color: black;
+    background-color: #ccccccab;
+}
+
+.container {
+    color: black;
+    font-size: larger;
+}
+
+#lead-container h1 {
+    color: #fe7259;
+}
+
+.button-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.dashboard-btn {
+    color: black;
+    height: 50px;
+    width: 100px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+
+    #logout,
+    #restart {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .warning {
+        display: none;
+    }
+}
+
+#restart:hover,
+#logout:hover {
+    background: black;
+    color: white;
+}
+
+#profit-section,
+#loss-section {
+    height: 400px;
+    overflow-y: auto;
+}
+
+.bgimg {
+    background-size: cover;
+}

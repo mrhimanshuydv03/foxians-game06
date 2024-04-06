@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="Registr.css">
+</head>
+
+<body>
+    <!-- <img id="img" src="/login-form/assets/img/1.png" alt="loding image"> -->
+    <div class="register">
+        <form action="login.html" class="register__form" name="form1">
+            <h1 class="register__title">Register</h1>
+            <div class="register__content">
+                <div class="register__box">
+                    <i class="ri-user-3-line register__icon"></i>
+                    <div class="register__box-input">
+                        <input type="text" required class="register__input" id="register-username"
+                            placeholder="Username">
+                        <label for="register-username" class="register__label"></label>
+                    </div>
+                </div>
+                <div class="register__box">
+                    <i class="ri-mail-line register__icon"></i>
+                    <div class="register__box-input">
+                        <input type="email" required class="register__input" id="register-email" placeholder="Email"
+                            name="text1">
+                        <label for="register-email" class="register__label"></label>
+                    </div>
+                </div>
+                <div class="register__box">
+                    <i class="ri-lock-2-line register__icon"></i>
+                    <div class="register__box-input">
+                        <input type="password" required class="register__input" id="register-pass"
+                            placeholder="Password" maxlength="10" minlength="8">
+                        <label for="register-pass" class="register__label"></label>
+                    </div>
+                </div>
+                <div class="register__box">
+                    <i class="ri-lock-2-line register__icon"></i>
+                    <div class="register__box-input">
+                        <input type="password" id="confirm_password" class="register__input" required
+                            placeholder="Confirm Password min 8 & 10 max " maxlength="10" minlength="6">
+                        <label class="register__label"></label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="otp-input" id="otpInput" style="display: none;">
+
+                <div class="register__box">
+                    <i class="ri-lock-2-line register__icon"></i>
+                    <div class="register__box-input">
+                        <input type="text" class="register__input" id="otpoo" placeholder="Enter OTP">
+                        <label for="otp" class="register__label"></label>
+                    </div>
+                </div>
+            </div>
+            <button type="button" style="display: none;" class="register__button" onclick="register()"
+                id="rgbtn">Register</button>
+            <button type="button" class="register__button" onclick="generateOTP()" id="otpbtn">Send OTP</button>
+
+            <!-- <-- <button type="button" class="register__button" onclick="register()">Register</button>  -->
+            <p class="register__login">Already have an account? <a href="/login-form/">Login</a></p>
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script>
+    // const axios = require('axios/dist/browser/axios.cjs');
+
+    // Function to generate OTP
+    let otp = ''
+    let password
+    let email
+    let name
+    let confirm_password
+    function generateOTP() {
+        const otpbeta = Math.floor(100000 + Math.random() * 900000).toString();
+        otp = otpbeta;
+
+        email = document.getElementById("register-email").value
+        password = document.getElementById("register-pass").value
+        confirm_password = document.getElementById("confirm_password").value
+        name = document.getElementById("register-username").value
+
+        if (password.length < 8) {
+            alert("Password is less than 8")
+            return
+        }
+        if (password != confirm_password) {
+            alert("Password did't match")
+            return
+        }
+
+        const data = {
+            otp,
+            emu: email,
+        }
+
+
+        fetch("http://localhost:3000/sendm", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => {
+                // console.log(res.data)
+                //  console.log(otp)
+                if (res.data.val === true) {
+                    alert('otp sent to mail')
+                }
+                else {
+                    alert('otp not sent')
+                }
+            })
+
+        document.getElementById('otpInput').style.display = 'block'
+        document.getElementById('otpbtn').style.display = 'none';
+        document.getElementById('rgbtn').style.display = 'block'
+    }
+
+    function register() {
+
+        const milaotp = document.getElementById('otpoo');
+
+        const data = {
+            email: email,
+            password: password,
+            name: name
+        };
+        //console.log(data)
+        const mailid = document.getElementById("register-email").value;
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        //console.log("OPT", otp)
+
+        
+        if (mailid.match(mailformat) && milaotp.value == otp) {
+            fetch("http://localhost:3000/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    window.location.replace("/login-form/");
+                    // console.log("Success:", data);
+                })
+                .catch((error) => {
+                    alert("Please fill all the filds with valid details");
+                    console.error("Error:", error);
+                });
+        }
+        else {
+            alert("Please check  email address!");
+            document.getElementById("register-email").focus();
+        }
+    }
+</script>
+<script>
+    function showOTP() {
+        var otpInput = document.getElementById('otpInput');
+        otpInput.style.display = 'block'; // Display the OTP input box
+    }
+</script>
+
+</body>
+
+</html>
